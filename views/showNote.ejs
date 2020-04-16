@@ -1,0 +1,49 @@
+<%- include("header") -%>
+<h1>Task </h1>
+<div class="table-responsive-sm">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const item of model) { %>
+            <tr>
+                <td><%= item.Title %></td>
+                <td><%= item.Description %></td>
+                <td><%= item.DueDate %></td>
+                <td><%= item.Status %></td>
+                <td><%= item.Priority %></td>
+                <td>
+                    <% for (const item1 of model) { %>
+                    <li>
+                        <%= item1.Note %>
+                    </li>
+                    <% } %>
+                </td>
+            </tr>
+            <%break%>
+            <% } %>
+
+        </tbody>
+
+
+
+    </table>
+    <div class="col-sm-10">
+        <% for (const item of model) { %>
+        <a class="btn btn-sm btn-success" href="/addNote/<%= item.Task_ID %>">Add New Note</a>
+        <%break%>
+        <% } %>
+
+        <a class="btn btn-sm btn-secondary" role="button" href="/index">Back</a>
+    </div>
+</div>
+
+<%- include("footer") -%>

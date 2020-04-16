@@ -1,0 +1,50 @@
+<%- include("header") -%>
+
+<h1>List of Task (<%= model.length %>)</h1>
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Sort
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/PrioritySort">Priority</a>
+        <a class="dropdown-item" href="/StatusSort">Status</a>
+        <a class="dropdown-item" href="DateSort">Date</a>
+    </div>
+</div>
+
+<div class="table-responsive-sm">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th class="d-print-none">
+                    <a class="btn btn-sm btn-success" href="/create">Add Task</a>
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <% for (const item of model) { %>
+            <tr>
+                <td><%= item.Title %></td>
+                <td><%= item.Description %></td>
+                <td><%= item.DueDate %></td>
+                <td><%= item.Status %></td>
+                <td><%= item.Priority %></td>
+                <td class="d-print-none">
+                    <a class="btn btn-sm btn-warning" href="/edit/<%= item.Task_ID %>">Edit</a>
+                    <a class="btn btn-sm btn-success" href="/addNote/<%= item.Task_ID %>">AddNotes</a>
+                    <a class="btn btn-sm btn-primary" href="/showNote/<%= item.Task_ID %>">ShowNotes</a>
+                </td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<%- include("footer") -%>

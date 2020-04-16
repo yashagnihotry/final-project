@@ -1,0 +1,25 @@
+<%- include("header") -%>
+
+<form action="/addNote/<%= model.Task_ID %>" method="post">
+    <h3>Add Note for <%= model.Description %></h3>
+    <br>
+    <div class="form-horizontal">
+
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2" for="Note">Note</label>
+            <div class="col-sm-7">
+                <input autofocus class="form-control" name="Note" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2"></label>
+            <div class="col-sm-10">
+                <input type="submit" value="Add" class="btn btn-default btn-warning" />
+                <a class="btn btn-secondary" role="button" href="/index">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%- include("footer") -%>
