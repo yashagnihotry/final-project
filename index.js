@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Starting the server
 app.listen(PORT, () => {
-  console.log("Server started (http://localhost:3000/) !");
+  console.log("Server started (http://localhost:4000/) !");
 });
 // GET /
 app.get("/", (req, res) => {
